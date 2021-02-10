@@ -10,7 +10,7 @@ git clone https://github.com/SemHiel/Front-End.git
 
 ## Live Versie
 ```bash
-http://semhiel.wtf/front-end/
+http://semhiel.wtf/Front-End/FRO1/index.html
 ```
 
 ## License
