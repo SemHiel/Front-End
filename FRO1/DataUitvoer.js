@@ -1,5 +1,20 @@
 const Uitvoer = document.getElementById('Uitvoer');
 let dataObject;
+const jsonKnop = document.getElementById('haalJSON');
+const urlJson = "https://gist.githubusercontent.com/Theo-denBlanken/193d989a2aab328f847f4357e7171dc5/raw/1ca3b05253dee0dac348b9ded4ada8a64d97ff5e/huisDataa.json";
+
+jsonKnop.addEventListener('click', () => {
+    jsonKnop.style.display = 'none';
+    const vraagServ = new XMLHttpRequest();
+    vraagServ.onreadystatechange = () => {
+        if( vraagServ.readyState == 4 && vraagServ.status == 200) {
+            dataObject = JSON.parse( vraagServ.responseText);
+            uitvoeren();
+        }
+    }
+    vraagServ.open('GET', urlJson, true);
+    vraagServ.send();
+})
 
 const geefDagWeek = (num) => {
     switch (num) {
@@ -32,6 +47,9 @@ const maandNaam = (num) => {
 }
 
 const maakDatum = (num) => {
+    if(typeof(num) == 'string') {
+        num = Date.parse(num);
+    }
     // Zet de String van de JS Datum om in een betere vorm
     let datum = new Date(num);
 
