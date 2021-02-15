@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haal JSON boeken op</title>
+</head>
+<body>
+    <h1>Haal JSON boeken op</h1>
+    <script>
+        const url = "https://gist.githubusercontent.com/Theo-denBlanken/ed9551298618eb05ad01b838b3bf32b5/raw/c8c1fed36793bdd6fd69ba6ee815c263a61118c3/boekenTheo.json"
+        // callback function
+        const verwerkData = (obj) => {
+            let uitvoer = "";
+            obj.forEach( boek => {
+                uitvoer += `<img style="width:100px" src="${boek.cover}" alt="${boek.titel}" >`
+            });
+            document.body.innerHTML = uitvoer;
+        }
+        // XMLHttpRequest Object
+        const aanvraagServer = new XMLHttpRequest();
+        aanvraagServer.onreadystatechange = () => {
+            console.log(`readyState: ${aanvraagServer.readyState} status: ${aanvraagServer.status}`);
+            if(aanvraagServer.readyState == 4 && aanvraagServer.status == 200) {
+                console.log(aanvraagServer.responseText);
+                let data = JSON.parse(aanvraagServer.responseText)
+                console.log(JSON.parse(aanvraagServer.responseText));
+                console.log(data);
+                verwerkData(data);
+            }
+        }
+        aanvraagServer.open('GET', url, true);
+        aanvraagServer.send();
+
+
+
+        // opdracht end script
+        console.log('Dit word uitgevoerd nadat send is verzonden');
+    </script>
+    
+</body>
+</html>
