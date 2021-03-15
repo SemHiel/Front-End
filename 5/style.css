@@ -1,0 +1,62 @@
+body {
+    background-color: white;
+    font-family: Raleway;
+    text-align: center;
+}
+
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "header   header"
+                         "kosten   kwh"
+                         "weer     weer"
+                         "graph    graph"
+                         "controls controls"
+}
+
+.item {
+    background-color: purple;
+    border: 1px solid #000;
+    padding: 5px;
+    min-height: 50px;
+}
+
+.header {
+    background-color: green;
+    grid-area: header;
+}
+
+.weer {
+    grid-area: weer;
+    text-align: center;
+}
+
+.graph {
+    grid-area: graph;
+}
+
+.kosten {
+    grid-area: kosten;
+    background-color: red;
+}
+
+.kwh {
+    grid-area: kwh;
+    background-color: orange;
+}
+
+.controls {
+    grid-area: controls;
+}
+
+@media screen and (min-width: 900px) {
+    
+    #dashboard {
+        grid-template-columns: 200px 1fr 1fr 200px;
+        grid-template-areas: "header   header   header   header"
+                             "kosten   controls controls weer"
+                             "graph    graph    kwh      weer"
+    }
+
+}
