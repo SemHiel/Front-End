@@ -1,0 +1,10 @@
+body {
+    background-color: rgb(110, 0, 236);
+}
+
+#grafiek {
+    background-color: #ffffff;
+    border: 2px dotted #333333;
+    width: 800px;
+    height: 600px;
+}
