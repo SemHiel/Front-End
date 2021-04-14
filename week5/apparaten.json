@@ -1,0 +1,19 @@
+[{
+        "naam": "Strijkijzer",
+        "vermogen": 2000,
+        "image": "images/strijkijzer.jpg",
+        "code": "STR"
+    },
+    {
+        "naam": "Koffiezetapparaat",
+        "vermogen": 750,
+        "image": "images/koffie.png",
+        "code": "KOF"
+    },
+    {
+        "naam": "Playstation 5",
+        "vermogen": 135,
+        "image": "images/p5.png",
+        "code": "PS5"
+    }
+]
